@@ -1,0 +1,29 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+
+string solution(vector<string> participant, vector<string> completion) {
+    string answer = "";
+    string name1 = "";
+    string name2 = "";
+    sort(participant.begin(), participant.end());
+    sort(completion.begin(), completion.end());
+
+    while(!participant.empty())
+    {
+        name1 = participant.back();
+        name2 = completion.back();
+
+        if ( name1 != name2 )
+        {
+            answer = name1;
+            break;
+        }
+
+        participant.pop_back();
+        completion.pop_back();
+    }
+    return answer;
+}
